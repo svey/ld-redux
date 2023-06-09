@@ -14,6 +14,6 @@ Also, update ldRedux.init to:
 ldRedux.init({
         clientSideId,
         dispatch,
-        context: { kind: 'user', ...custom, ...rest }
+        context // previously this was user see https://docs.launchdarkly.com/sdk/client-side/javascript/migration-2-to-3#understanding-differences-between-users-and-contexts
       });
 ```
