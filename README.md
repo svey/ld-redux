@@ -15,5 +15,6 @@ ldRedux.init({
         clientSideId,
         dispatch,
         context // previously this was user see migration documentation above
+        ...
       });
 ```
