@@ -60,13 +60,12 @@ describe('initialize', () => {
   });
 
   it('should initUser with default user if none is specified', () => {
-    const defaultUser = {
+    const defaultContext = {
+      kind: 'user',
       key: 'some-unique-guid',
       ip: '111.222.333.456',
-      custom: {
-        browser: 'waterfox',
-        device: 'desktop',
-      },
+      browser: 'waterfox',
+      device: 'desktop',
     };
 
     ldReduxInit({
@@ -76,21 +75,26 @@ describe('initialize', () => {
     });
 
     td.verify(
-      ldClientPackage.initialize(MOCK_CLIENT_SIDE_ID, td.matchers.contains(defaultUser), td.matchers.anything()),
+      ldClientPackage.initialize(MOCK_CLIENT_SIDE_ID, td.matchers.contains(defaultContext), td.matchers.anything()),
     );
   });
 
   it('should initUser with custom user if it is specified', () => {
-    const user = { key: 'yus-the-man', firstName: 'yus', lastName: 'ng' };
+    const context = {
+      kind: 'user',
+      key: 'yus-the-man',
+      firstName: 'yus',
+      lastName: 'ng',
+    };
 
     ldReduxInit({
       clientSideId: MOCK_CLIENT_SIDE_ID,
       dispatch: mock.store.dispatch,
       flags: { 'test-flag': false, 'another-test-flag': true },
-      user,
+      context,
     });
 
-    td.verify(ldClientPackage.initialize(MOCK_CLIENT_SIDE_ID, td.matchers.contains(user), td.matchers.anything()));
+    td.verify(ldClientPackage.initialize(MOCK_CLIENT_SIDE_ID, td.matchers.contains(context), td.matchers.anything()));
   });
 
   it('should pass options through if specified', () => {

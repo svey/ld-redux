@@ -44,38 +44,25 @@ const subscribeToChanges = (flags, dispatch, useCamelCaseFlagKeys) => {
   }
 };
 
-const initUser = () => {
-  let device;
+const initUserContext = () => ({
+  kind: 'user',
+  key: uuid.v4(),
+  ip: ip.address(),
+  browser: userAgentParser.getResult().browser.name,
+  device: isMobileDevice ? 'mobile' : isTabletDevice ? 'tablet' : 'desktop',
+});
 
-  if (isMobileDevice) {
-    device = 'mobile';
-  } else if (isTabletDevice) {
-    device = 'tablet';
-  } else {
-    device = 'desktop';
-  }
-
-  return {
-    key: uuid.v4(),
-    ip: ip.address(),
-    custom: {
-      browser: userAgentParser.getResult().browser.name,
-      device,
-    },
-  };
-};
-
-export default ({ clientSideId, dispatch, flags, useCamelCaseFlagKeys = true, user, subscribe, options }) => {
+export default ({ clientSideId, dispatch, flags, useCamelCaseFlagKeys = true, context, subscribe, options }) => {
   initFlags(flags, dispatch, useCamelCaseFlagKeys);
 
   // default subscribe to true
   const sanitisedSubscribe = typeof subscribe === 'undefined' ? true : subscribe;
 
-  if (!user) {
-    user = initUser();
+  if (!context) {
+    context = initUserContext();
   }
 
-  window.ldClient = ldClientInitialize(clientSideId, user, options);
+  window.ldClient = ldClientInitialize(clientSideId, context, options);
   window.ldClient.on('ready', () => {
     const flagsSanitised = flags || ldClient.allFlags();
     setFlags(flagsSanitised, dispatch, useCamelCaseFlagKeys);
