@@ -19,4 +19,4 @@ ldRedux.init({
       });
 ```
 
-and add `"ld-redux": "svey/ld-redux#{commit_sha from this repo}"` to your dependencies. (I hope to make this an npm module in the by EOY 2023 but I have a lot going on! Feel free to contribute if you like)
+and add `"ld-redux": "svey/ld-redux#{commit_sha from this repo}"` to your dependencies. (I hope to make this an npm module by EOY (2023) but I have a lot going on! Feel free to contribute if you like)
