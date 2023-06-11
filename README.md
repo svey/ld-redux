@@ -14,7 +14,7 @@ Huge shout-out to yusinto. He created the base of this package and if he resumes
 
 **Upgrade from yusinto/ld-redux**
 
-Update your user to a user context see [migration documentation](https://docs.launchdarkly.com/sdk/client-side/javascript/migration-2-to-3#understanding-differences-between-users-and-contexts) (if no context is passed a random user context will be generated)
+Update your user to a user context see [migration documentation](https://docs.launchdarkly.com/sdk/client-side/javascript/migration-2-to-3#understanding-differences-between-users-and-contexts) (if no context is passed a user context will be generated)
 
 Update `ldRedux.init` to:
 
@@ -28,7 +28,7 @@ ldRedux.init({
 ```
 
 **New to ld-redux**
-Your setup will looks something like this
+Your code should look something like this
 
 ```
 import ldRedux from 'ld-redux';
@@ -37,10 +37,20 @@ import reduxState from '../store/state';
 
 const store = createStore(reduxState);
 
+const context = {
+  kind: 'user',
+  key: 'user-key-123abc',
+  firstName: 'Sandy',
+  lastName: 'Smith',
+  email: 'sandy@example.com',
+  groups: ['Google', 'Microsoft']
+}; // https://docs.launchdarkly.com/sdk/features/user-context-config 
+
 ldRedux.init({
   clientSideId: '59b2b2596d1a250b1c78baa4',
   dispatch: store.dispatch,
   flags,
+  context,
 });
 ```
 
