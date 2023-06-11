@@ -8,6 +8,10 @@ Huge shout-out to yusinto. He created the base of this package and if he resumes
 
  This repo picks up where yusinto left off and migrates the launchdarkly [client-side javascript sdk](https://github.com/launchdarkly/js-client) from `^2.13.0` to `^3.1.3`.
 
+ **NPM Install**
+
+ npm i @svey/ld-redux
+
 **Upgrade from yusinto/ld-redux**
 
 Update your user to a user context see [migration documentation](https://docs.launchdarkly.com/sdk/client-side/javascript/migration-2-to-3#understanding-differences-between-users-and-contexts) (if no context is passed a random user context will be generated)
