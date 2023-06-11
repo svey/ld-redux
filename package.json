@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yusinto/ld-redux.git"
+    "url": "git+https://github.com/svey/ld-redux.git"
   },
   "keywords": [
     "launch",
@@ -22,12 +22,12 @@
     "flags",
     "toggles"
   ],
-  "author": "Yusinto Ngadiman <yusinto@gmail.com> (http://www.reactjunkie.com)",
+  "author": "Marcus Svehlak <marcus@svey.io> (http://svey.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yusinto/ld-redux/issues"
+    "url": "https://github.com/svey/ld-redux/issues"
   },
-  "homepage": "https://github.com/yusinto/ld-redux#readme",
+  "homepage": "https://github.com/svey/ld-redux#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
