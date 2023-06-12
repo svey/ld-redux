@@ -8,7 +8,7 @@ Huge shout-out to yusinto. He created the base of this package and if he resumes
 
  This repo picks up where yusinto left off and migrates the launchdarkly [client-side javascript sdk](https://github.com/launchdarkly/js-client) from `^2.13.0` to `^3.1.3`.
 
- **NPM Install**
+ **[NPM](https://www.npmjs.com/package/@svey/ld-redux)**
 
  npm i @svey/ld-redux
 
@@ -31,7 +31,7 @@ ldRedux.init({
 Your code should look something like this
 
 ```
-import ldRedux from 'ld-redux';
+import ldRedux from '@svey/ld-redux';
 import flags from '../flags';
 import reduxState from '../store/state';
 
