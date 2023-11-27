@@ -1,4 +1,6 @@
-# @svey/ld-redux
+# @dexterns88/ld-redux fork from @svey/ld-redux
+
+Note: Only added support for React 16
 
 > **A library to integrate launch darkly with react redux** :clap:
 
